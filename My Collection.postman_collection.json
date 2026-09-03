@@ -1,0 +1,183 @@
+{
+  "info": {
+    "_postman_id": "ec359d78-d338-477c-ae9d-bcf728e58e76",
+    "name": "My Collection",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57929772",
+    "_collection_link": "https://go.postman.co/collection/57929772-ec359d78-d338-477c-ae9d-bcf728e58e76?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Get data",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "postman-echo.com/get",
+          "host": [
+            "postman-echo",
+            "com"
+          ],
+          "path": [
+            "get"
+          ]
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": []
+    },
+    {
+      "name": "Post data",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {\n    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\n});\n"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"{{email}}\",\n  \"password\": \"{{password}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/api/account/authenticate",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "account",
+            "authenticate"
+          ]
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": []
+    },
+    {
+      "name": "https://test.fieldforceconnect.com/api/CRM/Lead",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "accept",
+            "value": "application/json, text/plain, */*"
+          },
+          {
+            "key": "accept-language",
+            "value": "en-US,en;q=0.9,bn;q=0.8"
+          },
+          {
+            "key": "authorization",
+            "value": "{{basic_auth_0tqq}}"
+          },
+          {
+            "key": "content-type",
+            "value": "application/json"
+          },
+          {
+            "key": "origin",
+            "value": "https://test.fieldforceconnect.com"
+          },
+          {
+            "key": "priority",
+            "value": "u=1, i"
+          },
+          {
+            "key": "referer",
+            "value": "https://test.fieldforceconnect.com/customers"
+          },
+          {
+            "key": "sec-ch-ua",
+            "value": "\"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\""
+          },
+          {
+            "key": "sec-ch-ua-mobile",
+            "value": "?0"
+          },
+          {
+            "key": "sec-ch-ua-platform",
+            "value": "\"Windows\""
+          },
+          {
+            "key": "sec-fetch-dest",
+            "value": "empty"
+          },
+          {
+            "key": "sec-fetch-mode",
+            "value": "cors"
+          },
+          {
+            "key": "sec-fetch-site",
+            "value": "same-origin"
+          },
+          {
+            "key": "user-agent",
+            "value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36"
+          },
+          {
+            "key": "Cookie",
+            "value": "DeviceId=91bd11ce-996c-4999-baf2-d065f53f3780; currentUser={\"userId\":1855,\"CompanyDetail\":{\"GroupId\":725,\"CompanyId\":1459,\"GroupName\":\"Default\",\"CompanyName\":\"Test Company\",\"Timezone\":\"India Standard Time\",\"CountryName\":\"\",\"CurrencyName\":\"\",\"CurrencySymbol\":\"à¤°à¥\",\"CurrencyId\":1,\"CompanyLogo\":\"\",\"CompanyLogoModifiedDate\":null,\"TrialStartDate\":\"09-03-2026 11:46:34 AM\",\"TrialEndDate\":\"05-30-2029 11:46:34 AM\",\"SubscriptionStatus\":\"Live\",\"DaysRemainig\":999,\"FinancialDate\":null,\"IsDistributorPortalEnabled\":false,\"IsWhatsAppEnabled\":false,\"IsLeadApproval\":false,\"IsBirthdayWish\":false,\"IsAnniversaryWish\":false,\"IsTeam\":false,\"IsSendEmailOnContractEnd\":false,\"IsDeactivateOnContractEnd\":false,\"DeactivateAfterDays\":1,\"IsEmployeeOnboard\":false,\"IsUserWishes\":false,\"IsSendPermissionModifiedMail\":false,\"PermissionModifiedMailRecipients\":\"\",\"IsCustomerAuditLogs\":false},\"roles\":{\"CompanyOwner\":true,\"GroupOwner\":true,\"GroupMember\":true,\"ShopDummy\":true,\"IsStarted\":true,\"FreezeDashboard\":false,\"IsTaskAdmin\":true,\"GCAdmin\":true,\"CRMAdmin\":true,\"ExpenseAdmin\":false,\"Reseller\":false,\"Manager\":false},\"accessToken\":\"{{basic_auth_0tqq}}\",\"userDetail\":{\"Status\":200,\"Message\":\"Success\",\"data\":{\"UserId\":1855,\"Name\":\"Almighty\",\"MobileNo\":\"9284098958\",\"CountryCode\":\"+91\",\"ContactNo\":\"-\",\"Email\":\"amishajain992@gmail.com\",\"Gender\":\"-\",\"Dob\":\"01/01/1900\",\"Country\":\"India\",\"State\":\"NA\",\"City\":\"NA\",\"StreetAddress\":\"NA\",\"ZipCode\":0,\"IsActive\":true,\"CreatedDate\":\"2026-09-03T06:16:34.22\",\"ModifiedDate\":\"2026-09-03T06:16:34.22\",\"UserImage\":\"NA\",\"CityId\":0,\"StateId\":0,\"CountryId\":0,\"AccessWebLogin\":true}}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"LeadId\":0,\"IsVisibleToAll\":false,\"LeadName\":\"Amisha Subhash Mehta\",\"RefNo\":\"\",\"ReferredBy\":0,\"PersonName\":\"Ketan Gokul Saini\",\"MobileNo\":\"+91 9657491068\",\"ContactNo\":\"\",\"Email\":\"amishamehta9900@gmail.com\",\"PersonDesignation\":\"\",\"PersonLocation\":\"\",\"Address\":\"\",\"CountryId\":0,\"StateId\":0,\"CityId\":0,\"LocalityId\":0,\"PinCode\":\"\",\"LeadSourceId\":0,\"LeadStageId\":0,\"TerritoryId\":0,\"Website\":\"\",\"OtherInfo\":\"\",\"LeadTypeId\":0,\"ParentLeadId\":0,\"FrontView\":\"\",\"BackView\":\"\",\"CustomFieldValues\":[],\"LeadTags\":[],\"Longitude\":0,\"Latitude\":0,\"LeadContacts\":[]}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://test.fieldforceconnect.com/api/CRM/Lead",
+          "protocol": "https",
+          "host": [
+            "test",
+            "fieldforceconnect",
+            "com"
+          ],
+          "path": [
+            "api",
+            "CRM",
+            "Lead"
+          ]
+        },
+        "description": "Generated from cURL: curl --url 'https://test.fieldforceconnect.com/api/CRM/Lead' \\\r\n  -H 'accept: application/json, text/plain, */*' \\\r\n  -H 'accept-language: en-US,en;q=0.9,bn;q=0.8' \\\r\n  -H 'authorization: {{basic_auth_0tqq}}' \\\r\n  -H 'content-type: application/json' \\\r\n  -b $'DeviceId=91bd11ce-996c-4999-baf2-d065f53f3780; currentUser={\"userId\":1855,\"CompanyDetail\":{\"GroupId\":725,\"CompanyId\":1459,\"GroupName\":\"Default\",\"CompanyName\":\"Test Company\",\"Timezone\":\"India Standard Time\",\"CountryName\":\"\",\"CurrencyName\":\"\",\"CurrencySymbol\":\"à¤°à¥\\u0081\",\"CurrencyId\":1,\"CompanyLogo\":\"\",\"CompanyLogoModifiedDate\":null,\"TrialStartDate\":\"09-03-2026 11:46:34 AM\",\"TrialEndDate\":\"05-30-2029 11:46:34 AM\",\"SubscriptionStatus\":\"Live\",\"DaysRemainig\":999,\"FinancialDate\":null,\"IsDistributorPortalEnabled\":false,\"IsWhatsAppEnabled\":false,\"IsLeadApproval\":false,\"IsBirthdayWish\":false,\"IsAnniversaryWish\":false,\"IsTeam\":false,\"IsSendEmailOnContractEnd\":false,\"IsDeactivateOnContractEnd\":false,\"DeactivateAfterDays\":1,\"IsEmployeeOnboard\":false,\"IsUserWishes\":false,\"IsSendPermissionModifiedMail\":false,\"PermissionModifiedMailRecipients\":\"\",\"IsCustomerAuditLogs\":false},\"roles\":{\"CompanyOwner\":true,\"GroupOwner\":true,\"GroupMember\":true,\"ShopDummy\":true,\"IsStarted\":true,\"FreezeDashboard\":false,\"IsTaskAdmin\":true,\"GCAdmin\":true,\"CRMAdmin\":true,\"ExpenseAdmin\":false,\"Reseller\":false,\"Manager\":false},\"accessToken\":\"{{basic_auth_0tqq}}\",\"userDetail\":{\"Status\":200,\"Message\":\"Success\",\"data\":{\"UserId\":1855,\"Name\":\"Almighty\",\"MobileNo\":\"9284098958\",\"CountryCode\":\"+91\",\"ContactNo\":\"-\",\"Email\":\"amishajain992@gmail.com\",\"Gender\":\"-\",\"Dob\":\"01/01/1900\",\"Country\":\"India\",\"State\":\"NA\",\"City\":\"NA\",\"StreetAddress\":\"NA\",\"ZipCode\":0,\"IsActive\":true,\"CreatedDate\":\"2026-09-03T06:16:34.22\",\"ModifiedDate\":\"2026-09-03T06:16:34.22\",\"UserImage\":\"NA\",\"CityId\":0,\"StateId\":0,\"CountryId\":0,\"AccessWebLogin\":true}}}' \\\r\n  -H 'origin: https://test.fieldforceconnect.com' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://test.fieldforceconnect.com/customers' \\\r\n  -H 'sec-ch-ua: \"Chromium\";v=\"152\", \"Not?A_Brand\";v=\"24\", \"Google Chrome\";v=\"152\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36' \\\r\n  --data-raw '{\"LeadId\":0,\"IsVisibleToAll\":false,\"LeadName\":\"Amisha Subhash Mehta\",\"RefNo\":\"\",\"ReferredBy\":0,\"PersonName\":\"Ketan Gokul Saini\",\"MobileNo\":\"+91 9657491068\",\"ContactNo\":\"\",\"Email\":\"amishamehta9900@gmail.com\",\"PersonDesignation\":\"\",\"PersonLocation\":\"\",\"Address\":\"\",\"CountryId\":0,\"StateId\":0,\"CityId\":0,\"LocalityId\":0,\"PinCode\":\"\",\"LeadSourceId\":0,\"LeadStageId\":0,\"TerritoryId\":0,\"Website\":\"\",\"OtherInfo\":\"\",\"LeadTypeId\":0,\"ParentLeadId\":0,\"FrontView\":\"\",\"BackView\":\"\",\"CustomFieldValues\":[],\"LeadTags\":[],\"Longitude\":0,\"Latitude\":0,\"LeadContacts\":[]}'"
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "basic_auth_0tqq",
+      "secret": true
+    }
+  ]
+}
